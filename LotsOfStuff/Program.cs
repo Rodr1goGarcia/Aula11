@@ -15,6 +15,7 @@ namespace Aula11
             // invocar o método TestProjet na instância criada
             Program prog = new Program();
             prog.TestProject();
+            
         }
 
         /// <summary>Método que testa este projeto</summary>
@@ -22,7 +23,12 @@ namespace Aula11
         {
             // Instanciar um jogador com 70 quilos
             Player p = new Player(70.0f);
+            Bag otherBag;
 
+            otherBag = new Bag(5);
+            otherBag.AddThing(new Food(FoodType.Meat, 1, 1f));
+            otherBag.AddThing(new Food(FoodType.Vegetables, 2, 1.5f));
+            p.BagOfStuff.AddThing(otherBag);
             //
             // Adicionar vários itens à mochila do jogador:
             //
@@ -42,6 +48,14 @@ namespace Aula11
             // Mostrar informação acerca dos conteúdos da mochila
             Console.WriteLine(p.BagOfStuff);
 
+            otherBag = new Bag(5);
+            otherBag.AddThing(new Food(FoodType.Meat, 1, 1f));
+            otherBag.AddThing(new Food(FoodType.Vegetables, 2, 1.5f));
+            p.BagOfStuff.AddThing(otherBag);
+
+            Console.WriteLine(p.BagOfStuff);
+
+
             // Percorrer itens na mochila e tentar "imprimir" cada um
             for (int i = 0; i < p.BagOfStuff.StuffCount; i++)
             {
@@ -54,9 +68,10 @@ namespace Aula11
                     (aThing as Gun).Shoot();
                 }
             }
-
+            
             // Mostrar de novo informação sobre a mochila
             Console.WriteLine(p.BagOfStuff);
         }
+
     }
 }
